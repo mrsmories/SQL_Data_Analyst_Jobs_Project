@@ -186,6 +186,66 @@ ORDER BY
 ```
 ### 5. Most Optimal Skills to Learn
 
-Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.
+Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.  Queries used for previous questions were combined to take this question another step for analysis.
 ```
 sql
+      SELECT
+        skills_dim.skill_id,
+        skills_dim.skills,
+        COUNT(skills_job_dim.job_id) AS demand_count,
+        ROUND(AVG(job_postings_fact.salary_year_avg), 0) AS avg_salary
+    FROM
+        job_postings_fact
+    INNER JOIN
+        skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+    INNER JOIN
+        skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+    WHERE job_title LIKE '%Data Analyst%'
+    AND job_work_from_home = TRUE
+    AND salary_year_avg IS NOT NULL 
+    GROUP BY
+        skills_dim.skill_id
+    HAVING
+        COUNT(skills_job_dim.job_id) > 10
+    ORDER BY
+        demand_count DESC,
+        avg_salary DESC
+    LIMIT 40;
+```
+###***High Demand vs. High Pay Analysis:***
+###**Top Skills by Demand:**
+1.	SQL (465 postings) - $101,017 avg salary
+2.	Python (274 postings) - $104,400 avg salary
+3.	Tableau (271 postings) - $102,899 avg salary
+4.	Excel (266 postings) - $90,086 avg salary
+###**Specialized vs. General Skills:**
+###**High-Value Specialized Skills (lower demand, higher pay):**
+•	Snowflake (54 postings) - $115,303 avg salary
+•	Oracle (37 postings) - $112,966 avg salary
+•	Go (36 postings) - $115,843 avg salary
+•	Looker (78 postings) - $110,997 avg salary
+###**Foundation Skills (high demand, moderate pay):**
+•	Excel - Most accessible but lowest paying ($90,086)
+•	SQL - Essential foundation skill with solid pay
+•	Python/Tableau - Strong balance of demand and salary
+###***Market Trends Revealed:***
+1.	Cloud/Modern Data Stack Premium: Snowflake, AWS, Azure command higher salaries
+2.	Programming Languages: Python and Go show strong salary premiums
+3.	Traditional vs. Modern: Excel still in demand but pays less than modern tools
+4.	Specialization Pays: Lower-demand specialized skills often pay more per opportunity
+###***Career Strategy Implications:***
+•	Foundation First: Master SQL, Python, Tableau (high demand + good pay)
+•	Specialize for Premium: Add cloud tools (Snowflake, AWS) for salary boost
+•	Balance Portfolio: Combine high-demand skills with specialized tools
+
+### **What I Learned**
+
+Throughout this project, I honed several key SQL techniques and skills:
+
+- **Complex Query Construction**: Learning to build advanced SQL queries that combine multiple tables and employ functions like **`WITH`** clauses for temporary tables.
+- **Data Aggregation**: Utilizing **`GROUP BY`** and aggregate functions like **`COUNT()`** and **`AVG()`** to summarize data effectively.
+- **Analytical Thinking**: Developing the ability to translate real-world questions into actionable SQL queries that got insightful answers.
+
+### **Conclusion**
+
+This project enhanced my SQL skills and provided valuable insights into the data analyst job market. The findings from the analysis serve as a guide to prioritizing skill development and job search efforts. Aspiring data analysts can better position themselves in a competitive job market by focusing on high-demand, high-salary skills. This exploration highlights the importance of continuous learning and adaptation to emerging trends in the field of data analytics.
