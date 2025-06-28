@@ -124,6 +124,8 @@ WITH top_paying_jobs AS (
 
 This query helped identify the skills most frequently requested in job postings, directing focus to areas with high demand.  The query focuses on all posted Data Analyst jobs and narrows down to the top 5 skills associated with those jobs.
 ```
+
+sql
 SELECT 
     skills,
     COUNT(skills_job_dim.job_id) AS demand_count
@@ -143,3 +145,28 @@ ORDER BY
 ### 4. Skills Based on Salary
 
 Exploring the average salaries associated with different skills revealed which skills are the highest paying.
+```
+sql
+SELECT 
+    skills,
+    skills_dim.type,
+    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+FROM
+        job_postings_fact
+    INNER JOIN
+        skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+    INNER JOIN
+        skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE job_title LIKE '%Data Analyst%' AND salary_year_avg IS NOT NULL AND job_location = 'Anywhere'
+GROUP BY
+skills,
+skills_dim.type
+ORDER BY
+    avg_salary DESC      
+    LIMIT 50;
+```
+### 5. Most Optimal Skills to Learn
+
+Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.
+```
+sql
