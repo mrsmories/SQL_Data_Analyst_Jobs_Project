@@ -63,4 +63,30 @@ Finding the optimal balance between skill demand and salary potential
 
 
 ### 1. Entry Level Remote Data Analyst Job
+  For the first query I was interested in how many remote jobs there are with Data Analyst in their job title in the 2023 database along with the company names and where the jobs were posted.  I focused on jobs with specified salaries and started at the lower end of the salary range assuming those would be the jobs most accessible to me at the Entry level.
+```
+sql
+SELECT
+    job_id,
+    job_title,
+    job_location,
+    job_schedule_type,
+    salary_year_avg,
+    job_posted_date,
+    job_via,
+    name AS company_name
+FROM
+    job_postings_fact
+LEFT JOIN
+    company_dim ON company_dim.company_id = job_postings_fact.company_id
+WHERE
+    job_title LIKE '%Data Analyst%' AND job_location ='Anywhere'
+    AND salary_year_avg IS NOT NULL
+ORDER BY
+    salary_year_avg;
+```
 
+### 2. Skills for Top Paying Jobs
+  For this query I wanted to explore what skills are associated with the top paying jobs in the 2023 data set.  As an Entry Level analyst that is still looking to build my skills I am curious about what types of skills are most valuable on the job market.
+```
+sql
