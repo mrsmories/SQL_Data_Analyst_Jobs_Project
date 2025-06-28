@@ -87,6 +87,40 @@ ORDER BY
 ```
 
 ### 2. Skills for Top Paying Jobs
-  For this query I wanted to explore what skills are associated with the top paying jobs in the 2023 data set.  As an Entry Level analyst that is still looking to build my skills I am curious about what types of skills are most valuable on the job market.
+  For this query I wanted to explore what skills are associated with the top paying jobs in the 2023 data set.  As an Entry Level analyst that is still looking to build my skills I am curious about what types of skills are most valuable on the job market.  By first finding the 20 job postings with highest average salaries and connecting to the skills that were highlighted in those postings I want to analyze how many times common skills occur associated with high paying jobs.
 ```
 sql
+WITH top_paying_jobs AS (
+    SELECT
+        job_id,
+        job_title,
+        salary_year_avg,
+        job_via,
+        name AS company_name
+    FROM
+        job_postings_fact
+    LEFT JOIN
+        company_dim ON company_dim.company_id = job_postings_fact.company_id
+    WHERE
+        job_title LIKE '%Data Analyst%' AND job_location ='Anywhere'
+        AND salary_year_avg IS NOT NULL
+    ORDER BY
+        salary_year_avg DESC
+    LIMIT 20)
+    SELECT 
+        top_paying_jobs.*,
+        skills
+
+    FROM
+        top_paying_jobs
+    INNER JOIN
+        skills_job_dim ON top_paying_jobs.job_id = skills_job_dim.job_id
+    INNER JOIN
+        skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+    ORDER BY
+        top_paying_jobs.salary_year_avg DESC;
+```
+###### 3. In-Demand Skills for Data Analysts
+
+This query helped identify the skills most frequently requested in job postings, directing focus to areas with high demand.  The query focuses on all posted Data Analyst jobs that are remote and narrows down to the top 5 skills associated with those jobs.
+```
