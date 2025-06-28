@@ -13,7 +13,7 @@
 
 Welcome to my SQL Portfolio Project, where I delve into the data job market with a focus on data analyst roles. This project is a personal exploration into identifying the top-paying jobs, in-demand skills, and the intersection of high demand with high salary in the field of data analytics.
 
-Check out my SQL queries here: [give name of specific repo].
+Check out my SQL queries here: [https://github.com/mrsmories/SQL_Data_Analyst_Jobs_Project/tree/main].
 
 ### **Background**
 
@@ -39,4 +39,28 @@ In this project, I utilized a variety of tools to conduct my analysis:
 
 ### Analysis
 
-Each query for this project aimed at investigating specific aspects of the data analyst job market. Here’s how I approached each question:   
+Each query for this project aimed at investigating specific aspects of the data analyst job market. Here’s how I approached each question: 
+
+
+## SQL Files
+
+This project contains the following SQL analysis files:
+
+### 📊 [Entry Level Analyst Jobs](./project_sql/1_Entry_analyst_jobs.sql)
+Analysis of entry-level data analyst job postings
+
+### 💰 [Top Paying Skills](./project_sql/2_top_paying_skills.sql)
+Identification of the highest-paying skills in data analysis
+
+### 🔥 [Most Demanded Skills](./project_sql/3_top_demanded_skills.sql)
+Analysis of the most frequently requested skills in job postings
+
+### 💸 [Top Paying Skills Analysis](./project_sql/4_top_paying_skills.sql)
+Further analysis of high-paying technical skills
+
+### ⚖️ [Optimal Skills Strategy](./project_sql/5_Optimal_skills.sql)
+Finding the optimal balance between skill demand and salary potential
+
+
+### 1. Entry Level Remote Data Analyst Job
+
