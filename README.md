@@ -119,7 +119,25 @@ WITH top_paying_jobs AS (
         skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
     ORDER BY
         top_paying_jobs.salary_year_avg DESC;
+
+ /*
+        --Table of top occuring skills
+        | Rank | Skill         | Appearances |
+| ---- | ------------- | ----------- |
+| 1    | **SQL**       | 17          |
+| 2    | **Python**    | 15          |
+| 3    | **Tableau**   | 13          |
+| 4    | **R**         | 9           |
+| 5    | **Excel**     | 5           |
+| 6    | **Snowflake** | 5           |
+| 7    | **AWS**       | 4           |
+| 8    | **Oracle**    | 3           |
+| 9    | **Go**        | 3           |
+| 10   | **Pandas**    | 3           |
+*/
 ```
+The table of results show the number of times each skill occurs in the top 20 highest paying Data Analyst jobs and orders the most popular skills highest to lowest.
+
 ### 3. In-Demand Skills for Data Analysts
 
 This query helped identify the skills most frequently requested in job postings, directing focus to areas with high demand.  The query focuses on all posted Data Analyst jobs and narrows down to the top 5 skills associated with those jobs.
@@ -142,6 +160,7 @@ ORDER BY
     demand_count DESC       
     LIMIT 5
 ```
+
 ### 4. Skills Based on Salary
 
 Exploring the average salaries associated with different skills revealed which skills are the highest paying.
