@@ -212,33 +212,33 @@ sql
         avg_salary DESC
     LIMIT 40;
 ```
-###***High Demand vs. High Pay Analysis:***
-###**Top Skills by Demand:**
+***High Demand vs. High Pay Analysis:***
+**Top Skills by Demand:**
 1.	SQL (465 postings) - $101,017 avg salary
 2.	Python (274 postings) - $104,400 avg salary
 3.	Tableau (271 postings) - $102,899 avg salary
 4.	Excel (266 postings) - $90,086 avg salary
-###**Specialized vs. General Skills:**
-###**High-Value Specialized Skills (lower demand, higher pay):**
+**Specialized vs. General Skills:**
+**High-Value Specialized Skills (lower demand, higher pay):**
 •	Snowflake (54 postings) - $115,303 avg salary
 •	Oracle (37 postings) - $112,966 avg salary
 •	Go (36 postings) - $115,843 avg salary
 •	Looker (78 postings) - $110,997 avg salary
-###**Foundation Skills (high demand, moderate pay):**
+**Foundation Skills (high demand, moderate pay):**
 •	Excel - Most accessible but lowest paying ($90,086)
 •	SQL - Essential foundation skill with solid pay
 •	Python/Tableau - Strong balance of demand and salary
-###***Market Trends Revealed:***
+***Market Trends Revealed:***
 1.	Cloud/Modern Data Stack Premium: Snowflake, AWS, Azure command higher salaries
 2.	Programming Languages: Python and Go show strong salary premiums
 3.	Traditional vs. Modern: Excel still in demand but pays less than modern tools
 4.	Specialization Pays: Lower-demand specialized skills often pay more per opportunity
-###***Career Strategy Implications:***
+***Career Strategy Implications:***
 •	Foundation First: Master SQL, Python, Tableau (high demand + good pay)
 •	Specialize for Premium: Add cloud tools (Snowflake, AWS) for salary boost
 •	Balance Portfolio: Combine high-demand skills with specialized tools
 
-### **What I Learned**
+ **What I Learned**
 
 Throughout this project, I honed several key SQL techniques and skills:
 
@@ -246,6 +246,6 @@ Throughout this project, I honed several key SQL techniques and skills:
 - **Data Aggregation**: Utilizing **`GROUP BY`** and aggregate functions like **`COUNT()`** and **`AVG()`** to summarize data effectively.
 - **Analytical Thinking**: Developing the ability to translate real-world questions into actionable SQL queries that got insightful answers.
 
-### **Conclusion**
+ **Conclusion**
 
 This project enhanced my SQL skills and provided valuable insights into the data analyst job market. The findings from the analysis serve as a guide to prioritizing skill development and job search efforts. Aspiring data analysts can better position themselves in a competitive job market by focusing on high-demand, high-salary skills. This exploration highlights the importance of continuous learning and adaptation to emerging trends in the field of data analytics.
